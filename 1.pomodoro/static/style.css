@@ -1,0 +1,121 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 400px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 32px 24px 24px 24px;
+    text-align: center;
+}
+@media (max-width: 600px) {
+    .container {
+        max-width: 98vw;
+        padding: 18px 4vw 18px 4vw;
+    }
+    #timer-display {
+        font-size: 2.2rem;
+    }
+    h1 {
+        font-size: 1.3rem;
+    }
+}
+#timer-display {
+    font-size: 3rem;
+    margin: 24px 0;
+    letter-spacing: 2px;
+}
+#timer-display:focus-visible {
+    outline: 3px solid #1976d2;
+    outline-offset: 4px;
+    border-radius: 6px;
+}
+.mode-buttons {
+    margin-bottom: 16px;
+}
+.mode-btn {
+    font-size: 1rem;
+    margin: 0 6px;
+    padding: 7px 18px;
+    border: none;
+    border-radius: 6px;
+    background: #64b5f6;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.mode-btn.active, .mode-btn:hover {
+    background: #1976d2;
+}
+.mode-btn:focus-visible {
+    background: #1976d2;
+    outline: 2px solid #1976d2;
+    outline-offset: 2px;
+}
+.buttons button {
+    font-size: 1.1rem;
+    margin: 0 8px;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 6px;
+    background: #e57373;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.buttons button:hover {
+    background: #d32f2f;
+}
+.buttons button:focus-visible {
+    background: #d32f2f;
+    outline: 2px solid #d32f2f;
+    outline-offset: 2px;
+}
+#session-info {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: #333;
+}
+#session-count {
+    font-weight: bold;
+    color: #388e3c;
+}
+#history-list {
+    margin: 24px 0 0 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0.98rem;
+    color: #444;
+}
+#history-list li {
+    margin-bottom: 4px;
+    padding-left: 0;
+}
+.lang-switch {
+    margin-bottom: 10px;
+    text-align: center;
+}
+.lang-btn {
+    font-size: 0.95rem;
+    margin: 0 4px;
+    padding: 5px 14px;
+    border: none;
+    border-radius: 6px;
+    background: #bdbdbd;
+    color: #222;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.lang-btn.active, .lang-btn:hover {
+    background: #616161;
+    color: #fff;
+}
+.lang-btn:focus-visible {
+    outline: 2px solid #616161;
+    outline-offset: 2px;
+}

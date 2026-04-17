@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ポモドーロタイマー</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container" role="main">
+        <h1 tabindex="0">ポモドーロタイマー</h1>
+        <div id="timer-display" aria-live="polite" aria-atomic="true" tabindex="0">25:00</div>
+        <div class="mode-buttons" role="group" aria-label="モード切替">
+            <button id="pomodoro-mode" class="mode-btn active" aria-pressed="true">ポモドーロ</button>
+            <button id="short-break-mode" class="mode-btn" aria-pressed="false">短い休憩</button>
+            <button id="long-break-mode" class="mode-btn" aria-pressed="false">長い休憩</button>
+        </div>
+        <div class="buttons" role="group" aria-label="タイマー操作">
+            <button id="start-btn">開始</button>
+            <button id="pause-btn">一時停止</button>
+            <button id="reset-btn">リセット</button>
+        </div>
+        <div id="session-info"><span id="session-label">完了セッション</span>: <span id="session-count">0</span></div>
+        <ul id="history-list" aria-label="履歴"></ul>
+    </div>
+    <div class="lang-switch">
+        <button id="lang-ja" class="lang-btn active" aria-pressed="true">日本語</button>
+        <button id="lang-en" class="lang-btn" aria-pressed="false">English</button>
+    </div>
+    <script src="/static/timer-mode-label.js"></script>
+    <script src="/static/timer.js"></script>
+</body>
+</html>
