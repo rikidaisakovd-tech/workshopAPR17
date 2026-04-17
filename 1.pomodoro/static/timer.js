@@ -3,6 +3,7 @@ let timeLeft = 25 * 60; // 25分
 let isRunning = false;
 let sessionCount = 0;
 const sessionCountElem = document.getElementById('session-count');
+const sessionLabelElem = document.getElementById('session-label');
 
 const display = document.getElementById('timer-display');
 const startBtn = document.getElementById('start-btn');
@@ -23,9 +24,8 @@ const modeBtns = {
     long: document.getElementById('long-break-mode')
 };
 
-const historyListElem = document.createElement('ul');
-historyListElem.id = 'history-list';
-document.querySelector('.container').appendChild(historyListElem);
+// 既存の #history-list 要素を使用（重複ID生成を防止）
+const historyListElem = document.getElementById('history-list');
 
 const LANGS = {
     ja: {
@@ -158,12 +158,14 @@ function setMode(mode) {
     currentMode = mode;
     timeLeft = MODES[mode];
     updateDisplay();
-    // ボタンのactive切替
+    // ボタンのactive切替とaria-pressed更新
     Object.keys(modeBtns).forEach(m => {
         if (m === mode) {
             modeBtns[m].classList.add('active');
+            modeBtns[m].setAttribute('aria-pressed', 'true');
         } else {
             modeBtns[m].classList.remove('active');
+            modeBtns[m].setAttribute('aria-pressed', 'false');
         }
     });
 }
@@ -175,17 +177,23 @@ modeBtns.long.onclick = () => setMode('long');
 function setLang(lang) {
     currentLang = lang;
     document.querySelector('h1').textContent = LANGS[lang].title;
+    document.title = LANGS[lang].title;
     startBtn.textContent = LANGS[lang].start;
     pauseBtn.textContent = LANGS[lang].pause;
     resetBtn.textContent = LANGS[lang].reset;
     modeBtns.pomodoro.textContent = LANGS[lang].pomodoro;
     modeBtns.short.textContent = LANGS[lang].short;
     modeBtns.long.textContent = LANGS[lang].long;
-    document.getElementById('session-info').childNodes[0].textContent = LANGS[lang].session + ': ';
-    // active切替
+    sessionLabelElem.textContent = LANGS[lang].session;
+    // active切替とaria-pressed更新
     Object.keys(langBtns).forEach(l => {
-        if (l === lang) langBtns[l].classList.add('active');
-        else langBtns[l].classList.remove('active');
+        if (l === lang) {
+            langBtns[l].classList.add('active');
+            langBtns[l].setAttribute('aria-pressed', 'true');
+        } else {
+            langBtns[l].classList.remove('active');
+            langBtns[l].setAttribute('aria-pressed', 'false');
+        }
     });
     fetchHistory();
 }

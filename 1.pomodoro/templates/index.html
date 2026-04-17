@@ -20,13 +20,13 @@
             <button id="pause-btn">一時停止</button>
             <button id="reset-btn">リセット</button>
         </div>
-        <div id="session-info">完了セッション: <span id="session-count">0</span></div>
+        <div id="session-info"><span id="session-label">完了セッション</span>: <span id="session-count">0</span></div>
+        <ul id="history-list" aria-label="履歴"></ul>
     </div>
-    <ul id="history-list" aria-label="履歴"></ul>
     <div class="lang-switch">
-            <button id="lang-ja" class="lang-btn active">日本語</button>
-            <button id="lang-en" class="lang-btn">English</button>
-        </div>
+        <button id="lang-ja" class="lang-btn active" aria-pressed="true">日本語</button>
+        <button id="lang-en" class="lang-btn" aria-pressed="false">English</button>
+    </div>
     <script src="/static/timer.js"></script>
 </body>
 </html>

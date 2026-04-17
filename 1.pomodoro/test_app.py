@@ -1,4 +1,10 @@
 import unittest
+import sys
+import os
+
+# 1.pomodoro/ をモジュール検索パスに追加
+sys.path.insert(0, os.path.dirname(__file__))
+
 from app import app
 
 class FlaskAppTestCase(unittest.TestCase):
@@ -26,6 +32,14 @@ class FlaskAppTestCase(unittest.TestCase):
         self.assertTrue(isinstance(data, list))
         self.assertGreaterEqual(len(data), 1)
         self.assertEqual(data[-1]['mode'], 'pomodoro')
+
+    def test_invalid_mode_returns_400(self):
+        res = self.client.post('/api/history', json={'mode': 'invalid'})
+        self.assertEqual(res.status_code, 400)
+
+    def test_missing_body_returns_400(self):
+        res = self.client.post('/api/history', content_type='application/json', data='')
+        self.assertEqual(res.status_code, 400)
 
 if __name__ == '__main__':
     unittest.main()

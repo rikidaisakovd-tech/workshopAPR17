@@ -29,7 +29,11 @@ body {
     font-size: 3rem;
     margin: 24px 0;
     letter-spacing: 2px;
-    outline: none;
+}
+#timer-display:focus-visible {
+    outline: 3px solid #1976d2;
+    outline-offset: 4px;
+    border-radius: 6px;
 }
 .mode-buttons {
     margin-bottom: 16px;
@@ -44,11 +48,14 @@ body {
     color: #fff;
     cursor: pointer;
     transition: background 0.2s;
-    outline: none;
 }
-.mode-btn.active, .mode-btn:focus, .mode-btn:hover {
+.mode-btn.active, .mode-btn:hover {
+    background: #1976d2;
+}
+.mode-btn:focus-visible {
     background: #1976d2;
     outline: 2px solid #1976d2;
+    outline-offset: 2px;
 }
 .buttons button {
     font-size: 1.1rem;
@@ -60,11 +67,14 @@ body {
     color: #fff;
     cursor: pointer;
     transition: background 0.2s;
-    outline: none;
 }
-.buttons button:focus, .buttons button:hover {
+.buttons button:hover {
+    background: #d32f2f;
+}
+.buttons button:focus-visible {
     background: #d32f2f;
     outline: 2px solid #d32f2f;
+    outline-offset: 2px;
 }
 #session-info {
     margin-bottom: 10px;
@@ -88,6 +98,7 @@ body {
 }
 .lang-switch {
     margin-bottom: 10px;
+    text-align: center;
 }
 .lang-btn {
     font-size: 0.95rem;
@@ -100,7 +111,11 @@ body {
     cursor: pointer;
     transition: background 0.2s;
 }
-.lang-btn.active, .lang-btn:focus, .lang-btn:hover {
+.lang-btn.active, .lang-btn:hover {
     background: #616161;
     color: #fff;
+}
+.lang-btn:focus-visible {
+    outline: 2px solid #616161;
+    outline-offset: 2px;
 }
