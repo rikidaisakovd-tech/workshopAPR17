@@ -39,4 +39,4 @@ def add_history():
     return jsonify({'result': 'ok', 'entry': entry})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)

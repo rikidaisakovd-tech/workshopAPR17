@@ -73,14 +73,14 @@ function fetchHistory() {
             historyListElem.innerHTML = '';
             data.slice().reverse().forEach(entry => {
                 const li = document.createElement('li');
-                li.textContent = `${entry.timestamp} - ${modeLabel(entry.mode)}`;
+                li.textContent = `${entry.timestamp} - ${modeLabelCurrent(entry.mode)}`;
                 historyListElem.appendChild(li);
             });
         });
 }
 
-function modeLabel(mode) {
-    return LANGS[currentLang][mode] || mode;
+function modeLabelCurrent(mode) {
+    return modeLabel(mode, currentLang);
 }
 
 // 通知許可リクエスト
@@ -112,7 +112,7 @@ function notifyEnd() {
     // ブラウザ通知
     if ('Notification' in window && Notification.permission === 'granted') {
         new Notification(LANGS[currentLang].timerEnd, {
-            body: LANGS[currentLang].timerEndBody(modeLabel(currentMode)),
+            body: LANGS[currentLang].timerEndBody(modeLabelCurrent(currentMode)),
             icon: ''
         });
     }
